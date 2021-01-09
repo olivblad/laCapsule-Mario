@@ -1,8 +1,8 @@
 //Storage of Mario's img dimension for motion purpose
 const marioHeight = $("#player").height();
 const marioWidth = $("#player").width();
-//Binding keys, img and moves within an object
-const moves = {
+//Binding keys, img and Moves within an object
+const Moves = {
   ArrowUp: {
     img: "mario-back-1.png",
     move: { top: -1 * marioHeight, left: 0 },
@@ -19,14 +19,14 @@ const moves = {
 const movingMario = (event) => {
   const mario = $("#player");
   const currentPosition = mario.offset();
-  if (Object.keys(moves).indexOf(event.key) < 0) {
+  if (Object.keys(Moves).indexOf(event.key) < 0) {
     console.log("i stay here sir");
   } else {
-    let src = `./images/${moves[event.key].img}`;
+    let src = `./images/${Moves[event.key].img}`;
     mario.attr("src", src);
     mario.offset({
-      top: currentPosition.top + moves[event.key].move.top,
-      left: currentPosition.left + moves[event.key].move.left,
+      top: currentPosition.top + Moves[event.key].move.top,
+      left: currentPosition.left + Moves[event.key].move.left,
     });
     console.log(currentPosition);
   }
